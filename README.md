@@ -1,4 +1,4 @@
-Automation challenge Lulo
+<em> # Automation challenge Lulo </em>
 Introduction 🚀
 Automation made for a challenge, with transactions to call API.
 
@@ -6,78 +6,82 @@ Automation made for a challenge, with transactions to call API.
 and validate different answers that it can answer.
 
 + Sensations: The api is very unstable which makes it a bit difficult to control when one response or another is going to come out, the api does not have the error messages well mapped and it does not control much errors either to have a wide variety of possibilities to test the messages or codes that returns, however it was a big challenge to automate this API.
+```
+ Feature: Get Post And Delete employees by api
+ 
+   @GetEmployees
+   Scenario Outline: As a user, I want consult the employees through services to carry out this process more quickly
+     Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
+     When execute the method "<RequestType>"
+     Then I see that the state is returned "<StatusCode>"
+     And I check if the user "<Employee>" exists among all employees
+     Examples:
+     | RequestType | Uri                                      |ResourceApi| StatusCode |Employee             |
+     | GET         | http://dummy.restapiexample.com/api/v1   |employees  |200         |Michael Silva        |
 
-# Feature: Get Post And Delete employees by api
-# 
-#   @GetEmployees
-#   Scenario Outline: As a user, I want consult the employees through services to carry out this process more quickly
-#     Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
-#     When execute the method "<RequestType>"
-#     Then I see that the state is returned "<StatusCode>"
-#     And I check if the user "<Employee>" exists among all employees
-#     Examples:
-#     | RequestType | Uri                                      |ResourceApi| StatusCode |Employee             |
-#     | GET         | http://dummy.restapiexample.com/api/v1   |employees  |200         |Michael Silva        |
+   @CreateEmployee
+   Scenario Outline: As a user, I want create the employees through services to carry out this process more quickly
+     Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
+     When execute the method "<RequestType>" to create the employee "<Employee>" with salary "<Salary>" and "<Age>"
+     Then I see that the state is returned "<StatusCode>"
+     And Check if the "<Employee>" was created successfully
+     Examples:
+       | RequestType | Uri                                      |ResourceApi| StatusCode |Employee         |Salary     |Age|
+       | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |12321      |25 |
+       | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |                 |12321      |25 |
+       | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |12321      |-25|
+       | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |500.000.001|25 |
+       | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |5113213221       |100.000    |25 |
 
-  # @CreateEmployee
-  # Scenario Outline: As a user, I want create the employees through services to carry out this process more quickly
-  #   Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
-  #   When execute the method "<RequestType>" to create the employee "<Employee>" with salary "<Salary>" and "<Age>"
-  #   Then I see that the state is returned "<StatusCode>"
-  #   And Check if the "<Employee>" was created successfully
-  #   Examples:
-  #     | RequestType | Uri                                      |ResourceApi| StatusCode |Employee         |Salary     |Age|
-  #     | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |12321      |25 |
-  #     | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |                 |12321      |25 |
-  #     | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |12321      |-25|
-  #     | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |Diego Zapata     |500.000.001|25 |
-  #     | POST        | http://dummy.restapiexample.com/api/v1/  |create     |200         |5113213221       |100.000    |25 |
+  @GetAnEmployee
+  Scenario Outline: As a user, I want consult one employee through services to carry out this process more quickly
+    Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
+    When execute the method "<RequestType>"
+    Then I see that the state is returned "<StatusCode>"
+    And I check if the "<Employee>" exists
+    And I check the message "<Message>"
+    Examples:
+      | RequestType | Uri                                      |ResourceApi  | StatusCode |Employee   | Message      |
+      | GET         | http://dummy.restapiexample.com/api/v1   |employee/20  |200         |Dai Rios   | Successfully |
+      | GET         | http://dummy.restapiexample.com/api/v1   |employee/-100|429         |           | Too Many Requests |
 
-  # @GetAnEmployee
-  # Scenario Outline: As a user, I want consult one employee through services to carry out this process more quickly
-  #   Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
-  #   When execute the method "<RequestType>"
-  #   Then I see that the state is returned "<StatusCode>"
-  #   And I check if the "<Employee>" exists
-  #   And I check the message "<Message>"
-  #   Examples:
-  #     | RequestType | Uri                                      |ResourceApi  | StatusCode |Employee   | Message      |
-  #     | GET         | http://dummy.restapiexample.com/api/v1   |employee/20  |200         |Dai Rios   | Successfully |
-  #     | GET         | http://dummy.restapiexample.com/api/v1   |employee/-100|429         |           | Too Many Requests |
-
-  # @DeleteAnEmployee
-  # Scenario Outline: As a user, I want delete one employee through services to carry out this process more quickly
-  #   Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
-  #   When execute the method "<RequestType>"
-  #   Then I see that the state is returned "<StatusCode>"
-  #   And I check the message "<Message>"
-  #   Examples:
-  #     | RequestType | Uri                                      |ResourceApi| StatusCode | Message           |
-  #     | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/20  |200         | deleted           |
-  #     | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/-%  |404         | Not Found         |
-  #     | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/4   |429         | Too Many Requests |
-
+   @DeleteAnEmployee
+   Scenario Outline: As a user, I want delete one employee through services to carry out this process more quickly
+     Given I make the connection to the api "<Uri>" with resource api "<ResourceApi>"
+     When execute the method "<RequestType>"
+     Then I see that the state is returned "<StatusCode>"
+     And I check the message "<Message>"
+     Examples:
+       | RequestType | Uri                                      |ResourceApi| StatusCode | Message           |
+       | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/20  |200         | deleted           |
+       | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/-%  |404         | Not Found         |
+       | DELETE      | http://dummy.restapiexample.com/api/v1   |delete/4   |429         | Too Many Requests |
+```
 ________
 Pre requirements to execute 📋
-Java version 1.8, update 151 or higher and JDK (environment variables configured).
-Eclipse IDE or IntelliJ IDEA (version 2018.3 or higher).
-Maven Compiler.
-Cucumber for Java Plugin (updated version).
-Gherkin Plugin (updated version).
++ Java version 1.8, update 151 or higher and JDK (environment variables configured).
++ Eclipse IDE or IntelliJ IDEA (version 2018.3 or higher).
++ Maven Compiler.
++ Cucumber for Java Plugin (updated version).
++ Gherkin Plugin (updated version).
 
 ________
 Installation 🔧
-To clone this repository locally, the following command must be run: git clone https://github.com/diegalez/LuloBank.git or download with ZIP
-Import the project from Eclipse or IntelliJ IDE.
-Configure the encoding to UTF-8 to the project once it is imported.
-Compile the project with the command mvn compile and mvn clean or use the plugin compiler in the IDE 🔨
++ To clone this repository locally, the following command must be run: git clone https://github.com/diegalez/LuloBank.git or download with ZIP
++ Import the project from Eclipse or IntelliJ IDE.
++ Configure the encoding to UTF-8 to the project once it is imported.
++ Compile the project with the command mvn compile and mvn clean or use the plugin compiler in the IDE 🔨
 ________
 Execution 💻
-The project can be executed from the console with the following command: mvn clean
-
+The project can be executed from : src/test/java/com/lulobank/runners/CallServices.java
+Tags: tags = {"@GetEmployees"} , {"@CreateEmployee"} , {"@GetAnEmployee"} , {"@DeleteAnEmployee"}
+________
+Create Serenity report 📋
++ User the plugin serenity:aggregate
 ________
 Project structure 🚧
-src/main/java/com/lulobank/
+
+\## src/main/java/com/lulobank/
 + exceptions
     Classes that catch custom exceptions when automation fails and cannot find an expected field.
 
@@ -96,7 +100,8 @@ src/main/java/com/lulobank/
 + utils
     Classes that contain common functionalities.
 
-src/test/java/com/lulobank/
+\## src/test/java/com/lulobank/  
+
 + runners
     Classes to run automation with the scenarios indicated in the feature.
 
