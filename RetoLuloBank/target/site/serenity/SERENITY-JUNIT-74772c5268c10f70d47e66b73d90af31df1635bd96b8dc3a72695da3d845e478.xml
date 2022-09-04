@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Get Post And Delete employees by api" skipped="0" tests="1" time="7.4" timestamp="2022-09-02 09:59:43"><testcase name="As a user, I want consult the employees through services to carry out this process more quickly"><failure message="El usuario no existe - java.lang.NullPointerException" type="java.lang.AssertionError">El usuario no existe - java.lang.NullPointerException</failure><system-err>El usuario no existe - java.lang.NullPointerException&#13;
+com.lulobank.stepdefinitions.CallServiceStepDefinition.iCheckIfTheExists(CallServiceStepDefinition.java:63)&#13;
+✽.I check if the "Dai Rios" exists(file:///C:/Users/diego.zapata/Documents/RetoLuloBank/src/test/resources/features/call_services.feature:30)&#13;
+</system-err></testcase></testsuite>
