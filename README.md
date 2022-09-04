@@ -2,10 +2,14 @@
 Introduction 🚀
 Automation made for a challenge, with transactions to call API.
 
++ A file is attached showing the operation of the cases and some notes. Evidencia Ejecución de casos de prueba
+
 * This challenge is created to consume through the GET , POST and DELETE methods the service http://dummy.restapiexample.com/api/v1/
 and validate different answers that it can answer.
 
 + Sensations: The api is very unstable which makes it a bit difficult to control when one response or another is going to come out, the api does not have the error messages well mapped and it does not control much errors either to have a wide variety of possibilities to test the messages or codes that returns, however it was a big challenge to automate this API.
+
++ For the POST method, 4 business rules were created because the api does not have many controls
 ```
  Feature: Get Post And Delete employees by api
  
