@@ -1,6 +1,0 @@
-"Story","Title","Result","Date","Stability","Duration (s)"
-"Get Post And Delete employees by api","As a user, I want consult the employees through services to carry out this process more quickly","FAILURE","2022-09-03T20:34:06.583-05:00[America/Bogota]","0.0","4.76"
-"Get Post And Delete employees by api","As a user, I want to create, consult and delete employees through services to carry out this process more quickly","PENDING","2022-09-02T17:32:10.7539427-05:00[America/Bogota]","0.0","7.4"
-"Get Post And Delete employees by api","As a user, I want create the employees through services to carry out this process more quickly","SUCCESS","2022-09-02T21:54:28.6886076-05:00[America/Bogota]","0.0","7.28"
-"Get Post And Delete employees by api","As a user, I want consult one employee through services to carry out this process more quickly","SUCCESS","2022-09-02T22:39:13.1352309-05:00[America/Bogota]","0.0","7.46"
-"Get Post And Delete employees by api","As a user, I want delete one employee through services to carry out this process more quickly","FAILURE","2022-09-02T23:16:47.6273264-05:00[America/Bogota]","0.0","11.4"

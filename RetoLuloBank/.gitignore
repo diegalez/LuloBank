@@ -1,0 +1,10 @@
+# Ignore project-specific cache directoy
+.project
+.classpath
+.class
+.settings
+.idea
+# Ignore output directory
+target
+bin/
+site/

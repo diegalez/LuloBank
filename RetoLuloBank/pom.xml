@@ -137,9 +137,6 @@
                         <version>${serenity.version}</version>
                     </dependency>
                 </dependencies>
-                <configuration>
-                    <tags>${tags}</tags>
-                </configuration>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>

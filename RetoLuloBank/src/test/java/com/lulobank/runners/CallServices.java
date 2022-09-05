@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         tags = {"@GetEmployees"},
         //tags = {"@CreateEmployee"},
         //tags = {"@GetAnEmployee"},
-        // tags = {"@DeleteAnEmployee"},
+        //tags = {"@DeleteAnEmployee"},
         monochrome = true,
         strict = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE

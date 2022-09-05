@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Get Post And Delete employees by api" skipped="0" tests="1" time="11.4" timestamp="2022-09-02 11:16:47"><testcase name="As a user, I want delete one employee through services to carry out this process more quickly"><failure message="Los codigos no son iguales - &#10;Expected: is &quot;200&quot;&#10;     but: was &quot;429&quot;" type="java.lang.AssertionError">Los codigos no son iguales - 
-Expected: is "200"
-     but: was "429"</failure><system-err>Los codigos no son iguales - 
-Expected: is "200"
-     but: was "429"&#13;
-com.lulobank.stepdefinitions.CallServiceStepDefinition.iSeeThatTheStateIsReturned(CallServiceStepDefinition.java:51)&#13;
-✽.I see that the state is returned "200"(file:///C:/Users/diego.zapata/Documents/RetoLuloBank/src/test/resources/features/call_services.feature:41)&#13;
-</system-err></testcase></testsuite>

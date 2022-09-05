@@ -1,5 +1,0 @@
-com\lulobank\models\InformationApi.class
-com\lulobank\interactions\TypeRequest.class
-com\lulobank\tasks\Post.class
-com\lulobank\utils\Constants.class
-com\lulobank\tasks\Get.class
